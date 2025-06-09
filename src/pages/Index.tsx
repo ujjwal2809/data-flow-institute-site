@@ -3,7 +3,7 @@ import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, CheckCircle, Users, Award, BookOpen, Briefcase, GraduationCap, Code, Laptop } from 'lucide-react';
+import { ArrowRight, CheckCircle, Users, Award, BookOpen, Briefcase, GraduationCap, Code, Laptop, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -64,11 +64,11 @@ const Index = () => {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="relative hero-gradient py-20 lg:py-32 text-white">
-        <div className="container mx-auto px-4">
+      <section className="relative hero-gradient py-20 lg:py-32 text-white overflow-hidden">
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
-              <Badge className="mb-6 text-sm px-4 py-2 bg-white/20 text-white border-white/30">🚀 #1 Data Engineering Institute in Mumbai</Badge>
+              <Badge className="mb-6 text-sm px-4 py-2 bg-white/20 text-white border-white/30 glow-effect">🚀 #1 Data Engineering Institute in Mumbai</Badge>
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
                 Transform Your Career with
                 <span className="text-accent block">Data Engineering</span>
@@ -80,13 +80,16 @@ const Index = () => {
                 Join Mumbai's most trusted institute for placement-focused Data Engineering training. 
                 Learn from industry experts and get guaranteed placement in top companies.
               </p>
-              <Button size="lg" className="text-lg px-8 py-6 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 bg-white text-primary hover:bg-white/90">
-                Start Your Journey <ArrowRight className="ml-2 w-5 h-5" />
-              </Button>
+              <a href="tel:+919987058393">
+                <Button size="lg" className="text-lg px-8 py-6 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 bg-white text-primary hover:bg-white/90 glow-effect">
+                  <Phone className="mr-2 w-5 h-5" />
+                  Call Now: +91 99870 58393
+                </Button>
+              </a>
             </div>
             
             <div className="relative max-w-4xl mx-auto">
-              <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border">
+              <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border tech-border glow-effect">
                 <img 
                   src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
                   alt="Data Engineering Institute Classroom Training in Mumbai, Thane, Navi Mumbai"
@@ -120,7 +123,7 @@ const Index = () => {
           
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {steps.map((step, index) => (
-              <Card key={index} className="relative group hover:shadow-xl transition-all duration-300 border-2 hover:border-primary/20">
+              <Card key={index} className="relative group hover:shadow-xl transition-all duration-300 border-2 hover:border-primary/20 glow-effect">
                 <CardContent className="p-8 text-center">
                   <div className="absolute -top-4 left-8 bg-primary text-primary-foreground rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">
                     {step.step}
@@ -151,7 +154,7 @@ const Index = () => {
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
             {features.map((feature, index) => (
-              <Card key={index} className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-2 hover:border-primary/20">
+              <Card key={index} className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-2 hover:border-primary/20 glow-effect">
                 <CardContent className="p-6 text-center h-full flex flex-col">
                   <div className="mb-4 flex justify-center">
                     {feature.icon}
@@ -182,8 +185,8 @@ const Index = () => {
       </section>
 
       {/* Mission Statement Section */}
-      <section className="py-20 hero-gradient text-white">
-        <div className="container mx-auto px-4">
+      <section className="py-20 hero-gradient text-white relative overflow-hidden">
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-5xl font-bold mb-8">
               Our Mission

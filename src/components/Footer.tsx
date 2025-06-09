@@ -42,8 +42,8 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="w-5 h-5 text-primary" />
-                <a href="mailto:info@dataengineeringinstitute.com" className="text-muted-foreground hover:text-primary transition-colors">
-                  info@dataengineeringinstitute.com
+                <a href="mailto:info@datainstitute.in" className="text-muted-foreground hover:text-primary transition-colors">
+                  info@datainstitute.in
                 </a>
               </div>
             </div>
@@ -89,19 +89,19 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Google Maps Embed */}
+        {/* Google Maps Embed - Updated to exact location */}
         <div className="mt-12 mb-8">
           <h3 className="text-lg font-semibold text-foreground mb-4">Find Us</h3>
-          <div className="w-full h-64 rounded-lg overflow-hidden border">
+          <div className="w-full h-64 rounded-lg overflow-hidden border tech-border">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3767.8978!2d72.975544315!3d19.218315487!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b8f3b1b1b1b1%3A0x1b1b1b1b1b1b1b1b!2sWagle%20Industrial%20Estate%2C%20Thane%20West%2C%20Thane%2C%20Maharashtra%20400604!5e0!3m2!1sen!2sin!4v1635000000000!5m2!1sen!2sin"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3767.8978317891626!2d72.97554431490123!3d19.218315387020458!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b91b1b1b1b1b%3A0x1b1b1b1b1b1b1b1b!2sAwfis%20-%20Wagle%20Estate%2C%20Thane!5e0!3m2!1sen!2sin!4v1735635000000!5m2!1sen!2sin"
               width="100%"
               height="100%"
               style={{ border: 0 }}
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Data Engineering Institute Location - Thane, Maharashtra"
+              title="Data Engineering Institute Location - Awfis Wagle Estate, Thane, Maharashtra"
             ></iframe>
           </div>
         </div>
