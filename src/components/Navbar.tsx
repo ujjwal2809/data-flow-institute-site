@@ -2,7 +2,13 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
-import { Menu, X, GraduationCap } from 'lucide-react';
+import { Menu, X, GraduationCap, ChevronDown } from 'lucide-react';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,12 +16,18 @@ const Navbar = () => {
 
   const navItems = [
     { name: 'Home', path: '/' },
-    { name: 'Courses', path: '/courses' },
     { name: 'Campus', path: '/campus' },
     { name: 'Placements', path: '/placements' },
     { name: 'About Us', path: '/about' },
     { name: 'Blog', path: '/blog' },
     { name: 'Contact', path: '/contact' }
+  ];
+
+  const courseLocations = [
+    { name: 'All Courses', path: '/courses' },
+    { name: 'Mumbai Course', path: '/courses/mumbai' },
+    { name: 'Thane Course', path: '/courses/thane' },
+    { name: 'Navi Mumbai Course', path: '/courses/navi-mumbai' }
   ];
 
   return (
@@ -43,6 +55,30 @@ const Navbar = () => {
                 {item.name}
               </Link>
             ))}
+            
+            {/* Courses Dropdown */}
+            <DropdownMenu>
+              <DropdownMenuTrigger className={`flex items-center text-sm font-medium transition-colors hover:text-primary ${
+                location.pathname.startsWith('/courses') 
+                  ? 'text-primary' 
+                  : 'text-muted-foreground'
+              }`}>
+                Courses <ChevronDown className="ml-1 w-4 h-4" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="bg-background border border-border shadow-lg">
+                {courseLocations.map((course) => (
+                  <DropdownMenuItem key={course.name} asChild>
+                    <Link
+                      to={course.path}
+                      className="w-full px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground"
+                    >
+                      {course.name}
+                    </Link>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
+
             <Button className="ml-4">
               Enroll Now
             </Button>
@@ -75,6 +111,22 @@ const Navbar = () => {
                   {item.name}
                 </Link>
               ))}
+              
+              {/* Mobile Courses Links */}
+              <div className="space-y-2">
+                <div className="text-sm font-medium text-foreground">Courses:</div>
+                {courseLocations.map((course) => (
+                  <Link
+                    key={course.name}
+                    to={course.path}
+                    className="block py-1 pl-4 text-sm text-muted-foreground hover:text-primary transition-colors"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {course.name}
+                  </Link>
+                ))}
+              </div>
+              
               <Button className="w-full mt-4">
                 Enroll Now
               </Button>

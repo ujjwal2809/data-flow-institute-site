@@ -11,6 +11,9 @@ import Placements from "./pages/Placements";
 import About from "./pages/About";
 import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
+import MumbaiCourse from "./pages/MumbaiCourse";
+import ThaneCourse from "./pages/ThaneCourse";
+import NaviMumbaiCourse from "./pages/NaviMumbaiCourse";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -24,6 +27,9 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/courses" element={<Courses />} />
+          <Route path="/courses/mumbai" element={<MumbaiCourse />} />
+          <Route path="/courses/thane" element={<ThaneCourse />} />
+          <Route path="/courses/navi-mumbai" element={<NaviMumbaiCourse />} />
           <Route path="/campus" element={<Campus />} />
           <Route path="/placements" element={<Placements />} />
           <Route path="/about" element={<About />} />

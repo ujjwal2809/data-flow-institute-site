@@ -3,7 +3,7 @@ import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, CheckCircle, Users, Award, BookOpen, Briefcase, GraduationCap, Code, Laptop, FileText } from 'lucide-react';
+import { ArrowRight, CheckCircle, Users, Award, BookOpen, Briefcase, GraduationCap, Code, Laptop } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -64,23 +64,23 @@ const Index = () => {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary/5 to-accent/10 py-20 lg:py-32">
+      <section className="relative hero-gradient py-20 lg:py-32 text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
-              <Badge className="mb-6 text-sm px-4 py-2">🚀 India's Premier Data Engineering Institute</Badge>
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6 leading-tight">
+              <Badge className="mb-6 text-sm px-4 py-2 bg-white/20 text-white border-white/30">🚀 #1 Data Engineering Institute in Mumbai</Badge>
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
                 Transform Your Career with
-                <span className="text-primary block">Data Engineering</span>
-                <span className="text-muted-foreground text-2xl md:text-3xl lg:text-4xl block mt-4">
-                  Classroom Training by Industry Experts
+                <span className="text-accent block">Data Engineering</span>
+                <span className="text-xl md:text-2xl lg:text-3xl block mt-4 text-white/90">
+                  Placement-Focused Cloud Training in Mumbai, Thane & Navi Mumbai
                 </span>
               </h1>
-              <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-xl mb-8 max-w-3xl mx-auto leading-relaxed text-white/90">
                 Join Mumbai's most trusted institute for placement-focused Data Engineering training. 
                 Learn from industry experts and get guaranteed placement in top companies.
               </p>
-              <Button size="lg" className="text-lg px-8 py-6 rounded-full shadow-lg hover:shadow-xl transition-all duration-300">
+              <Button size="lg" className="text-lg px-8 py-6 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 bg-white text-primary hover:bg-white/90">
                 Start Your Journey <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
             </div>
@@ -89,10 +89,10 @@ const Index = () => {
               <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border">
                 <img 
                   src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
-                  alt="Data Engineering Institute Classroom"
+                  alt="Data Engineering Institute Classroom Training in Mumbai, Thane, Navi Mumbai"
                   className="w-full h-64 md:h-96 object-cover"
                 />
-                <div className="p-6 bg-gradient-to-r from-primary/10 to-accent/10">
+                <div className="p-6 section-gradient">
                   <p className="text-center text-muted-foreground font-medium">
                     State-of-the-art classroom facilities in Mumbai, Thane & Navi Mumbai
                   </p>
@@ -103,21 +103,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Featured In Section */}
-      <section className="py-16 bg-muted/30">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h3 className="text-lg font-semibold text-muted-foreground mb-8">FEATURED IN</h3>
-            <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
-              {publications.map((pub, index) => (
-                <div key={index} className="text-2xl font-bold text-muted-foreground">
-                  {pub}
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Success Stories Section (moved from testimonials) */}
+      <TestimonialCarousel />
 
       {/* How It Works Section */}
       <section className="py-20 bg-background">
@@ -150,8 +137,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="py-20 bg-muted/30">
+      {/* Features Section (moved from previous location) */}
+      <section className="py-20 section-gradient">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
@@ -178,20 +165,33 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <TestimonialCarousel />
+      {/* Featured In Section (moved from publications) */}
+      <section className="py-16 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h3 className="text-lg font-semibold text-muted-foreground mb-8">FEATURED IN</h3>
+            <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
+              {publications.map((pub, index) => (
+                <div key={index} className="text-2xl font-bold text-muted-foreground">
+                  {pub}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Mission Statement Section */}
-      <section className="py-20 bg-gradient-to-br from-primary/5 to-accent/10">
+      <section className="py-20 hero-gradient text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-8">
+            <h2 className="text-3xl md:text-5xl font-bold mb-8">
               Our Mission
             </h2>
-            <p className="text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed">
+            <p className="text-xl md:text-2xl mb-8 leading-relaxed">
               "Helping Professionals transition into High-Paying Data Engineering Careers"
             </p>
-            <p className="text-lg text-muted-foreground leading-relaxed">
+            <p className="text-lg leading-relaxed text-white/90">
               We believe in the power of classroom learning combined with industry expertise. 
               Our placement-driven approach ensures that every student not only learns cutting-edge 
               data engineering skills but also secures their dream job in top companies. 
@@ -200,16 +200,16 @@ const Index = () => {
             </p>
             <div className="mt-12 flex flex-wrap justify-center gap-6">
               <div className="text-center">
-                <div className="text-3xl font-bold text-primary">500+</div>
-                <div className="text-muted-foreground">Students Placed</div>
+                <div className="text-3xl font-bold text-accent">500+</div>
+                <div className="text-white/90">Students Placed</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-primary">95%</div>
-                <div className="text-muted-foreground">Placement Rate</div>
+                <div className="text-3xl font-bold text-accent">95%</div>
+                <div className="text-white/90">Placement Rate</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-primary">12 LPA</div>
-                <div className="text-muted-foreground">Average Package</div>
+                <div className="text-3xl font-bold text-accent">12 LPA</div>
+                <div className="text-white/90">Average Package</div>
               </div>
             </div>
           </div>
