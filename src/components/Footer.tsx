@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { GraduationCap, MapPin, Phone, Mail } from 'lucide-react';
+import { GraduationCap, MapPin, Phone, Mail, Shield, Award, CheckCircle } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -21,30 +21,19 @@ const Footer = () => {
               Transform your career with expert guidance.
             </p>
             
-            {/* NAP Information */}
-            <div className="space-y-3">
-              <div className="flex items-start space-x-3">
-                <MapPin className="w-5 h-5 text-primary mt-1" />
-                <div>
-                  <p className="font-semibold text-foreground">Data Engineering Institute - Python, SQL, Spark, Kafka, ETL Databricks Training</p>
-                  <p className="text-muted-foreground text-sm">
-                    1st Floor, Awfis, Bhairav Milestone, Neheru Nagar,<br />
-                    Wagle Industrial Estate, Thane West, Thane,<br />
-                    Maharashtra 400604
-                  </p>
-                </div>
+            {/* Trust Seals */}
+            <div className="flex flex-wrap gap-4 py-4">
+              <div className="flex items-center space-x-2 bg-primary/10 px-3 py-2 rounded-lg">
+                <Shield className="w-5 h-5 text-primary" />
+                <span className="text-sm font-semibold text-foreground">ISO Certified</span>
               </div>
-              <div className="flex items-center space-x-3">
-                <Phone className="w-5 h-5 text-primary" />
-                <a href="tel:+919987058393" className="text-muted-foreground hover:text-primary transition-colors">
-                  099870 58393
-                </a>
+              <div className="flex items-center space-x-2 bg-accent/10 px-3 py-2 rounded-lg">
+                <Award className="w-5 h-5 text-accent" />
+                <span className="text-sm font-semibold text-foreground">GCP Authorized Partner</span>
               </div>
-              <div className="flex items-center space-x-3">
-                <Mail className="w-5 h-5 text-primary" />
-                <a href="mailto:info@datainstitute.in" className="text-muted-foreground hover:text-primary transition-colors">
-                  info@datainstitute.in
-                </a>
+              <div className="flex items-center space-x-2 bg-green-100 px-3 py-2 rounded-lg">
+                <CheckCircle className="w-5 h-5 text-green-600" />
+                <span className="text-sm font-semibold text-green-800">100% Placement</span>
               </div>
             </div>
 
@@ -89,20 +78,52 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Google Maps Embed - Updated to exact location */}
-        <div className="mt-12 mb-8">
-          <h3 className="text-lg font-semibold text-foreground mb-4">Find Us</h3>
-          <div className="w-full h-64 rounded-lg overflow-hidden border tech-border">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3767.8978317891626!2d72.97554431490123!3d19.218315387020458!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b91b1b1b1b1b%3A0x1b1b1b1b1b1b1b1b!2sAwfis%20-%20Wagle%20Estate%2C%20Thane!5e0!3m2!1sen!2sin!4v1735635000000!5m2!1sen!2sin"
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Data Engineering Institute Location - Awfis Wagle Estate, Thane, Maharashtra"
-            ></iframe>
+        {/* NAP Information */}
+        <div className="mt-12 mb-8 grid md:grid-cols-2 gap-8">
+          <div className="space-y-4">
+            <h3 className="text-lg font-semibold text-foreground mb-4">Contact Information</h3>
+            <div className="space-y-3">
+              <div className="flex items-start space-x-3">
+                <MapPin className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+                <div>
+                  <p className="font-semibold text-foreground">Data Engineering Institute - Python, SQL, Spark, Kafka, ETL Databricks Training</p>
+                  <p className="text-muted-foreground text-sm">
+                    1st Floor, Awfis, Bhairav Milestone, Neheru Nagar,<br />
+                    Wagle Industrial Estate, Thane West, Thane,<br />
+                    Maharashtra 400604
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-center space-x-3">
+                <Phone className="w-5 h-5 text-primary" />
+                <a href="tel:+919987058393" className="text-muted-foreground hover:text-primary transition-colors">
+                  099870 58393
+                </a>
+              </div>
+              <div className="flex items-center space-x-3">
+                <Mail className="w-5 h-5 text-primary" />
+                <a href="mailto:info@datainstitute.in" className="text-muted-foreground hover:text-primary transition-colors">
+                  info@datainstitute.in
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Google Maps Embed */}
+          <div>
+            <h3 className="text-lg font-semibold text-foreground mb-4">Find Us</h3>
+            <div className="w-full h-64 rounded-lg overflow-hidden border tech-border">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3767.8978317891626!2d72.97554431490123!3d19.218315387020458!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b8e8b6b8b6b7%3A0x8e8e8e8e8e8e8e8e!2sAwfis%20Wagle%20Estate!5e0!3m2!1sen!2sin!4v1735635000000!5m2!1sen!2sin"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Data Engineering Institute Location - Awfis Wagle Estate, Thane, Maharashtra"
+              ></iframe>
+            </div>
           </div>
         </div>
 
