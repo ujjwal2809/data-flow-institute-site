@@ -1,124 +1,137 @@
 
 import React from 'react';
 import { Card, CardContent } from "@/components/ui/card";
-import { Target, Building, Briefcase, Shield } from 'lucide-react';
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
-import Autoplay from "embla-carousel-autoplay";
+import { Badge } from "@/components/ui/badge";
+import { 
+  Briefcase, 
+  Building2, 
+  BookOpen, 
+  Users, 
+  Trophy,
+  CheckCircle
+} from 'lucide-react';
 
 const AnimatedFeatures = () => {
   const features = [
     {
-      icon: <Target className="w-12 h-12 text-blue-400" />,
+      icon: <Trophy className="w-8 h-8 text-blue-600" />,
       title: "Most Placement Focused Institute",
-      description: "India's #1 placement-focused data engineering institute with guaranteed job placement and dedicated career support.",
-      highlight: "100% Placement Guarantee"
+      description: "100% placement assistance with dedicated career support and industry connections",
+      highlight: "100% Placement",
+      gradient: "feature-gradient"
     },
     {
-      icon: <Building className="w-12 h-12 text-blue-400" />,
+      icon: <Building2 className="w-8 h-8 text-blue-600" />,
       title: "State-of-the-Art Classroom Facilities",
-      description: "Modern classrooms equipped with latest technology, high-speed internet, and interactive learning environments.",
-      highlight: "Premium Infrastructure"
+      description: "Modern infrastructure with latest technology and comfortable learning environment",
+      highlight: "Modern Infrastructure",
+      gradient: "feature-gradient"
     },
     {
-      icon: <Briefcase className="w-12 h-12 text-blue-400" />,
+      icon: <BookOpen className="w-8 h-8 text-blue-600" />,
       title: "Learning on Live Industry Projects",
-      description: "Work on real-world projects from Fortune 500 companies and gain hands-on experience with current industry practices.",
-      highlight: "8+ Live Projects"
+      description: "Hands-on experience with real-world projects from leading companies",
+      highlight: "Live Projects",
+      gradient: "feature-gradient"
     },
     {
-      icon: <Shield className="w-12 h-12 text-blue-400" />,
-      title: "450+ Placement Partners with Interview Guarantee",
-      description: "Extensive network of hiring partners across top tech companies with guaranteed interview opportunities.",
-      highlight: "Interview Guarantee"
+      icon: <Briefcase className="w-8 h-8 text-blue-600" />,
+      title: "450+ Placement Partners",
+      description: "Extensive network of hiring partners across various industries and domains",
+      highlight: "450+ Partners",
+      gradient: "feature-gradient"
+    },
+    {
+      icon: <CheckCircle className="w-8 h-8 text-blue-600" />,
+      title: "Interview Guarantee",
+      description: "Guaranteed interview calls with our placement partner companies",
+      highlight: "Interview Guarantee",
+      gradient: "feature-gradient"
+    },
+    {
+      icon: <Users className="w-8 h-8 text-blue-600" />,
+      title: "Expert Industry Mentors",
+      description: "Learn from seasoned professionals with years of industry experience",
+      highlight: "Expert Mentors",
+      gradient: "feature-gradient"
     }
   ];
 
-  const plugin = React.useRef(
-    Autoplay({ delay: 4000, stopOnInteraction: true })
-  );
-
   return (
-    <section className="py-20 white-card-gradient">
+    <section className="py-20 section-gradient">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold text-blue-900 mb-6">
+          <Badge className="mb-6 text-sm px-4 py-2 bg-blue-100 text-blue-800 border-blue-200">
+            🚀 Why Choose Us
+          </Badge>
+          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
             Why Choose 
-            <span className="tech-gradient block">Data Engineering Institute?</span>
+            <span className="tech-gradient block">Data Engineering Institute</span>
           </h2>
-          <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-            Experience the difference with our industry-leading approach to data engineering education
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            Experience excellence in data engineering education with industry-leading facilities, 
+            expert mentorship, and guaranteed career outcomes
           </p>
         </div>
-        
-        {/* Desktop Grid with Staggered Animation */}
-        <div className="hidden lg:grid lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {features.map((feature, index) => (
             <Card 
-              key={index} 
-              className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-6 border-2 border-slate-200 hover:border-blue-300 bg-white backdrop-blur-sm relative overflow-hidden"
+              key={index}
+              className="group hover:shadow-xl transition-all duration-500 hover:-translate-y-4 tech-border-effect"
               style={{
-                animationDelay: `${index * 200}ms`,
+                animationDelay: `${index * 100}ms`,
                 animation: `fade-in 0.6s ease-out forwards`
               }}
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-transparent to-slate-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <CardContent className="p-8 text-center h-full flex flex-col relative z-10">
-                <div className="mb-6 flex justify-center">
-                  <div className="p-4 bg-blue-50 rounded-full group-hover:scale-110 group-hover:bg-blue-100 transition-all duration-500 group-hover:shadow-lg">
+              <CardContent className="p-6 h-full flex flex-col relative">
+                <div className="flex items-center justify-between mb-4">
+                  <div className="p-3 bg-blue-50 rounded-lg group-hover:scale-110 transition-all duration-300">
                     {feature.icon}
                   </div>
+                  <Badge className="bg-blue-100 text-blue-800 border-blue-200 text-xs">
+                    {feature.highlight}
+                  </Badge>
                 </div>
-                <div className="mb-3 px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-semibold border border-blue-200">
-                  {feature.highlight}
-                </div>
-                <h3 className="text-lg font-bold mb-4 text-blue-900 group-hover:text-blue-700 transition-all duration-300">
+                
+                <h3 className="text-lg font-bold mb-3 text-foreground group-hover:text-blue-700 transition-colors">
                   {feature.title}
                 </h3>
-                <p className="text-slate-600 text-sm flex-grow leading-relaxed">{feature.description}</p>
+                
+                <p className="text-muted-foreground text-sm flex-grow leading-relaxed">
+                  {feature.description}
+                </p>
+                
+                <div className="mt-4 pt-4 border-t border-slate-100">
+                  <div className="flex items-center justify-center">
+                    <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
+                    <div className="w-2 h-2 bg-blue-400 rounded-full ml-1 animate-pulse" style={{ animationDelay: '0.2s' }}></div>
+                    <div className="w-2 h-2 bg-blue-300 rounded-full ml-1 animate-pulse" style={{ animationDelay: '0.4s' }}></div>
+                  </div>
+                </div>
               </CardContent>
             </Card>
           ))}
         </div>
 
-        {/* Mobile Horizontal Carousel */}
-        <div className="lg:hidden">
-          <Carousel
-            plugins={[plugin.current]}
-            className="w-full max-w-sm mx-auto md:max-w-3xl"
-            onMouseEnter={plugin.current.stop}
-            onMouseLeave={plugin.current.reset}
-          >
-            <CarouselContent className="-ml-2 md:-ml-4">
-              {features.map((feature, index) => (
-                <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-1/2">
-                  <Card className="group hover:shadow-xl transition-all duration-300 border-2 border-slate-200 hover:border-blue-300 bg-white backdrop-blur-sm h-full">
-                    <CardContent className="p-6 text-center h-full flex flex-col">
-                      <div className="mb-4 flex justify-center">
-                        <div className="p-3 bg-blue-50 rounded-full group-hover:scale-110 group-hover:bg-blue-100 transition-all duration-300">
-                          {feature.icon}
-                        </div>
-                      </div>
-                      <div className="mb-3 px-2 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-semibold border border-blue-200">
-                        {feature.highlight}
-                      </div>
-                      <h3 className="text-lg font-bold mb-3 text-blue-900 group-hover:text-blue-700 transition-colors">
-                        {feature.title}
-                      </h3>
-                      <p className="text-slate-600 text-sm flex-grow">{feature.description}</p>
-                    </CardContent>
-                  </Card>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious className="hidden md:flex" />
-            <CarouselNext className="hidden md:flex" />
-          </Carousel>
+        {/* Professional Stats Section */}
+        <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+          <div className="text-center">
+            <div className="stats-gradient text-3xl md:text-4xl font-bold mb-2">450+</div>
+            <p className="text-muted-foreground text-sm">Placement Partners</p>
+          </div>
+          <div className="text-center">
+            <div className="stats-gradient text-3xl md:text-4xl font-bold mb-2">100%</div>
+            <p className="text-muted-foreground text-sm">Placement Rate</p>
+          </div>
+          <div className="text-center">
+            <div className="stats-gradient text-3xl md:text-4xl font-bold mb-2">5000+</div>
+            <p className="text-muted-foreground text-sm">Students Placed</p>
+          </div>
+          <div className="text-center">
+            <div className="stats-gradient text-3xl md:text-4xl font-bold mb-2">24/7</div>
+            <p className="text-muted-foreground text-sm">Career Support</p>
+          </div>
         </div>
       </div>
     </section>
