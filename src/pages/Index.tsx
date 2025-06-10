@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -65,7 +64,16 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Featured In Section */}
+      {/* Success Stories Section - Moved up */}
+      <TestimonialCarousel />
+
+      {/* How It Works Section */}
+      <AnimatedHowItWorks />
+
+      {/* Courses Section */}
+      <CoursesSection />
+
+      {/* Featured In Section - Moved down */}
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
@@ -80,15 +88,6 @@ const Index = () => {
           </div>
         </div>
       </section>
-
-      {/* Success Stories Section */}
-      <TestimonialCarousel />
-
-      {/* How It Works Section */}
-      <AnimatedHowItWorks />
-
-      {/* Courses Section */}
-      <CoursesSection />
 
       {/* Features Section */}
       <AnimatedFeatures />
