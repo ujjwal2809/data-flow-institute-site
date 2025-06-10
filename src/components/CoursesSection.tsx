@@ -68,7 +68,7 @@ const CoursesSection = () => {
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
             Our Popular 
-            <span className="tech-gradient block">Courses</span>
+            <span className="holographic block">Courses</span>
           </h2>
           <p className="text-xl text-blue-100 max-w-2xl mx-auto">
             Industry-focused curriculum designed to get you placed in top companies
@@ -80,7 +80,7 @@ const CoursesSection = () => {
           {courses.map((course, index) => (
             <Card 
               key={index}
-              className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-6 border border-blue-300/30 bg-white/95 backdrop-blur-sm relative overflow-hidden"
+              className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-6 border border-blue-300/30 bg-white/95 backdrop-blur-sm relative overflow-hidden tech-border-effect glow-effect"
               style={{
                 animationDelay: `${index * 150}ms`,
                 animation: `fade-in 0.6s ease-out forwards`
@@ -88,7 +88,7 @@ const CoursesSection = () => {
             >
               <CardContent className="p-6 h-full flex flex-col relative z-10">
                 <div className="flex items-center justify-between mb-4">
-                  <div className="p-3 bg-blue-50 rounded-lg group-hover:scale-110 transition-all duration-300">
+                  <div className="p-3 bg-blue-50 rounded-lg group-hover:scale-110 transition-all duration-300 glow-effect">
                     {course.icon}
                   </div>
                   <Badge className="bg-blue-100 text-blue-800 border-blue-200">
@@ -124,7 +124,7 @@ const CoursesSection = () => {
                 </div>
                 
                 <Link to={course.link} className="mt-auto">
-                  <Button className="w-full bg-blue-800 hover:bg-blue-900 text-white transition-all duration-300 group-hover:shadow-lg">
+                  <Button className="w-full professional-button text-white transition-all duration-300 group-hover:shadow-lg">
                     Learn More
                     <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                   </Button>
@@ -145,10 +145,10 @@ const CoursesSection = () => {
             <CarouselContent className="-ml-2 md:-ml-4">
               {courses.map((course, index) => (
                 <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
-                  <Card className="group hover:shadow-xl transition-all duration-300 border border-blue-300/30 bg-white/95 backdrop-blur-sm h-full">
+                  <Card className="group hover:shadow-xl transition-all duration-300 border border-blue-300/30 bg-white/95 backdrop-blur-sm h-full tech-border-effect">
                     <CardContent className="p-6 h-full flex flex-col">
                       <div className="flex items-center justify-between mb-4">
-                        <div className="p-3 bg-blue-50 rounded-lg">
+                        <div className="p-3 bg-blue-50 rounded-lg glow-effect">
                           {course.icon}
                         </div>
                         <Badge className="bg-blue-100 text-blue-800 border-blue-200">
@@ -189,7 +189,7 @@ const CoursesSection = () => {
                       </div>
                       
                       <Link to={course.link} className="mt-auto">
-                        <Button className="w-full bg-blue-800 hover:bg-blue-900 text-white">
+                        <Button className="w-full professional-button text-white">
                           Learn More
                           <ArrowRight className="w-4 h-4 ml-2" />
                         </Button>

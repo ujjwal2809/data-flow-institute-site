@@ -14,42 +14,42 @@ import {
 const AnimatedFeatures = () => {
   const features = [
     {
-      icon: <Trophy className="w-8 h-8 text-blue-600" />,
+      icon: <Trophy className="w-8 h-8 accent-blue" />,
       title: "Most Placement Focused Institute",
       description: "100% placement assistance with dedicated career support and industry connections",
       highlight: "100% Placement",
       gradient: "feature-gradient"
     },
     {
-      icon: <Building2 className="w-8 h-8 text-blue-600" />,
+      icon: <Building2 className="w-8 h-8 accent-blue" />,
       title: "State-of-the-Art Classroom Facilities",
       description: "Modern infrastructure with latest technology and comfortable learning environment",
       highlight: "Modern Infrastructure",
       gradient: "feature-gradient"
     },
     {
-      icon: <BookOpen className="w-8 h-8 text-blue-600" />,
+      icon: <BookOpen className="w-8 h-8 accent-blue" />,
       title: "Learning on Live Industry Projects",
       description: "Hands-on experience with real-world projects from leading companies",
       highlight: "Live Projects",
       gradient: "feature-gradient"
     },
     {
-      icon: <Briefcase className="w-8 h-8 text-blue-600" />,
+      icon: <Briefcase className="w-8 h-8 accent-blue" />,
       title: "450+ Placement Partners",
       description: "Extensive network of hiring partners across various industries and domains",
       highlight: "450+ Partners",
       gradient: "feature-gradient"
     },
     {
-      icon: <CheckCircle className="w-8 h-8 text-blue-600" />,
+      icon: <CheckCircle className="w-8 h-8 accent-blue" />,
       title: "Interview Guarantee",
       description: "Guaranteed interview calls with our placement partner companies",
       highlight: "Interview Guarantee",
       gradient: "feature-gradient"
     },
     {
-      icon: <Users className="w-8 h-8 text-blue-600" />,
+      icon: <Users className="w-8 h-8 accent-blue" />,
       title: "Expert Industry Mentors",
       description: "Learn from seasoned professionals with years of industry experience",
       highlight: "Expert Mentors",
@@ -58,7 +58,7 @@ const AnimatedFeatures = () => {
   ];
 
   return (
-    <section className="py-20 section-gradient">
+    <section className="py-20 section-gradient cyber-grid">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <Badge className="mb-6 text-sm px-4 py-2 bg-blue-100 text-blue-800 border-blue-200">
@@ -78,7 +78,7 @@ const AnimatedFeatures = () => {
           {features.map((feature, index) => (
             <Card 
               key={index}
-              className="group hover:shadow-xl transition-all duration-500 hover:-translate-y-4 tech-border-effect"
+              className="group hover:shadow-xl transition-all duration-500 hover:-translate-y-4 tech-border-effect glow-effect"
               style={{
                 animationDelay: `${index * 100}ms`,
                 animation: `fade-in 0.6s ease-out forwards`
@@ -86,7 +86,7 @@ const AnimatedFeatures = () => {
             >
               <CardContent className="p-6 h-full flex flex-col relative">
                 <div className="flex items-center justify-between mb-4">
-                  <div className="p-3 bg-blue-50 rounded-lg group-hover:scale-110 transition-all duration-300">
+                  <div className="p-3 bg-blue-50 rounded-lg group-hover:scale-110 transition-all duration-300 glow-effect">
                     {feature.icon}
                   </div>
                   <Badge className="bg-blue-100 text-blue-800 border-blue-200 text-xs">

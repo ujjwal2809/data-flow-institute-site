@@ -3,6 +3,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Import high-tech font */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. */
 
 @layer base {
@@ -16,7 +19,7 @@
     --popover: 255 255 255;
     --popover-foreground: 15 23 42;
 
-    --primary: 71 85 105;
+    --primary: 37 99 235;
     --primary-foreground: 255 255 255;
 
     --secondary: 241 245 249;
@@ -25,7 +28,7 @@
     --muted: 148 163 184;
     --muted-foreground: 71 85 105;
 
-    --accent: 100 116 139;
+    --accent: 59 130 246;
     --accent-foreground: 255 255 255;
 
     --destructive: 239 68 68;
@@ -33,18 +36,18 @@
 
     --border: 226 232 240;
     --input: 226 232 240;
-    --ring: 71 85 105;
+    --ring: 37 99 235;
 
     --radius: 0.5rem;
 
     --sidebar-background: 248 250 252;
     --sidebar-foreground: 15 23 42;
-    --sidebar-primary: 71 85 105;
+    --sidebar-primary: 37 99 235;
     --sidebar-primary-foreground: 255 255 255;
     --sidebar-accent: 241 245 249;
     --sidebar-accent-foreground: 15 23 42;
     --sidebar-border: 226 232 240;
-    --sidebar-ring: 71 85 105;
+    --sidebar-ring: 37 99 235;
   }
 
   .dark {
@@ -57,38 +60,39 @@
     --popover: 30 41 59;
     --popover-foreground: 248 250 252;
 
-    --primary: 148 163 184;
+    --primary: 59 130 246;
     --primary-foreground: 15 23 42;
 
     --secondary: 51 65 85;
     --secondary-foreground: 248 250 252;
 
-    --muted: 51 65 85;
+    --muted: 71 85 105;
     --muted-foreground: 148 163 184;
 
-    --accent: 100 116 139;
-    --accent-foreground: 255 255 255;
+    --accent: 96 165 250;
+    --accent-foreground: 15 23 42;
 
     --destructive: 220 38 38;
     --destructive-foreground: 248 250 252;
 
     --border: 51 65 85;
     --input: 51 65 85;
-    --ring: 148 163 184;
+    --ring: 59 130 246;
     --sidebar-background: 15 23 42;
     --sidebar-foreground: 248 250 252;
-    --sidebar-primary: 148 163 184;
+    --sidebar-primary: 59 130 246;
     --sidebar-primary-foreground: 15 23 42;
     --sidebar-accent: 51 65 85;
     --sidebar-accent-foreground: 248 250 252;
     --sidebar-border: 51 65 85;
-    --sidebar-ring: 148 163 184;
+    --sidebar-ring: 59 130 246;
   }
 }
 
 @layer base {
   * {
     @apply border-border;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
   }
 
   body {
@@ -101,9 +105,14 @@
       rgb(248, 250, 252) 100%
     );
   }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Orbitron', monospace;
+    font-weight: 600;
+  }
 }
 
-/* Professional Grey and White Hero Background */
+/* High-Tech Blue-Grey Hero Background */
 .hero-gradient {
   background: linear-gradient(135deg, 
     rgb(15, 23, 42) 0%, 
@@ -113,6 +122,7 @@
     rgb(15, 23, 42) 100%
   );
   position: relative;
+  overflow: hidden;
 }
 
 .hero-gradient::before {
@@ -123,18 +133,29 @@
   right: 0;
   bottom: 0;
   background: linear-gradient(45deg, 
-    rgba(148, 163, 184, 0.08) 0%, 
-    rgba(100, 116, 139, 0.08) 25%, 
-    rgba(71, 85, 105, 0.08) 50%, 
-    rgba(100, 116, 139, 0.08) 75%, 
-    rgba(148, 163, 184, 0.08) 100%
+    rgba(37, 99, 235, 0.1) 0%, 
+    rgba(59, 130, 246, 0.1) 25%, 
+    rgba(96, 165, 250, 0.1) 50%, 
+    rgba(59, 130, 246, 0.1) 75%, 
+    rgba(37, 99, 235, 0.1) 100%
   );
   animation: shimmer 6s ease-in-out infinite alternate;
 }
 
+.hero-gradient::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%233b82f6' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.4;
+}
+
 @keyframes shimmer {
-  0% { opacity: 0.4; }
-  100% { opacity: 0.8; }
+  0% { opacity: 0.3; }
+  100% { opacity: 0.7; }
 }
 
 @keyframes fade-in {
@@ -148,6 +169,11 @@
   }
 }
 
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(59, 130, 246, 0.6); }
+}
+
 .section-gradient {
   background: linear-gradient(135deg, 
     rgb(248, 250, 252) 0%, 
@@ -158,44 +184,53 @@
   );
 }
 
-/* High-Tech Professional Grey Gradient Text */
+/* High-Tech Blue Gradient Text */
 .tech-gradient {
   background: linear-gradient(135deg, 
-    rgb(71, 85, 105) 0%, 
-    rgb(100, 116, 139) 25%, 
-    rgb(148, 163, 184) 50%, 
-    rgb(203, 213, 225) 75%, 
-    rgb(100, 116, 139) 100%
+    rgb(37, 99, 235) 0%, 
+    rgb(59, 130, 246) 25%, 
+    rgb(96, 165, 250) 50%, 
+    rgb(147, 197, 253) 75%, 
+    rgb(59, 130, 246) 100%
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   font-weight: 700;
+  font-family: 'Orbitron', monospace;
 }
 
-/* Enhanced tech aesthetics with professional grey theme */
+/* Enhanced tech aesthetics with blue theme */
 .tech-border {
-  border: 1px solid rgb(71, 85, 105);
-  box-shadow: 0 0 25px rgba(71, 85, 105, 0.3);
+  border: 1px solid rgb(59, 130, 246);
+  box-shadow: 0 0 25px rgba(59, 130, 246, 0.3);
 }
 
 .glow-effect {
-  box-shadow: 0 8px 25px rgba(71, 85, 105, 0.15), 
-              0 4px 10px rgba(100, 116, 139, 0.1);
+  box-shadow: 0 8px 25px rgba(37, 99, 235, 0.15), 
+              0 4px 10px rgba(59, 130, 246, 0.1);
+  transition: all 0.3s ease;
+}
+
+.glow-effect:hover {
+  box-shadow: 0 12px 35px rgba(37, 99, 235, 0.25), 
+              0 6px 15px rgba(59, 130, 246, 0.2);
 }
 
 .tech-button {
   background: linear-gradient(135deg, 
-    rgb(71, 85, 105) 0%, 
-    rgb(100, 116, 139) 100%
+    rgb(37, 99, 235) 0%, 
+    rgb(59, 130, 246) 100%
   );
   border: none;
-  box-shadow: 0 4px 15px rgba(71, 85, 105, 0.3);
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
   transition: all 0.3s ease;
+  font-family: 'Orbitron', monospace;
+  font-weight: 500;
 }
 
 .tech-button:hover {
-  box-shadow: 0 6px 20px rgba(71, 85, 105, 0.4);
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
   transform: translateY(-2px);
 }
 
@@ -219,17 +254,17 @@
   }
 }
 
-/* Enhanced card hover effects with professional theme */
+/* Enhanced card hover effects with blue theme */
 .card-hover {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card-hover:hover {
   transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 20px 40px rgba(71, 85, 105, 0.2);
+  box-shadow: 0 20px 40px rgba(37, 99, 235, 0.2);
 }
 
-/* Professional Grey Course Card Background */
+/* Professional Blue Course Card Background */
 .course-card-gradient {
   background: linear-gradient(135deg, 
     rgb(15, 23, 42) 0%, 
@@ -247,74 +282,120 @@
   );
 }
 
-/* Professional Stats Gradient - Grey Tones */
+/* Professional Stats Gradient - Blue Tones */
 .stats-gradient {
   background: linear-gradient(135deg, 
-    rgb(71, 85, 105) 0%, 
-    rgb(100, 116, 139) 25%, 
-    rgb(148, 163, 184) 50%, 
-    rgb(203, 213, 225) 75%, 
-    rgb(100, 116, 139) 100%
+    rgb(37, 99, 235) 0%, 
+    rgb(59, 130, 246) 25%, 
+    rgb(96, 165, 250) 50%, 
+    rgb(147, 197, 253) 75%, 
+    rgb(59, 130, 246) 100%
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   font-weight: 700;
+  font-family: 'Orbitron', monospace;
 }
 
 /* Professional Feature Card Gradient */
 .feature-gradient {
   background: linear-gradient(135deg, 
-    rgb(248, 250, 252) 0%, 
-    rgb(255, 255, 255) 50%, 
+    rgb(255, 255, 255) 0%, 
+    rgb(248, 250, 252) 50%, 
     rgb(241, 245, 249) 100%
   );
 }
 
 /* High-Tech Accent Colors */
-.accent-slate {
-  color: rgb(100, 116, 139);
+.accent-blue {
+  color: rgb(59, 130, 246);
+}
+
+.accent-blue-dark {
+  color: rgb(37, 99, 235);
 }
 
 .accent-grey {
   color: rgb(71, 85, 105);
 }
 
-.accent-light-grey {
-  color: rgb(148, 163, 184);
-}
-
 /* Professional Button Styles */
 .professional-button {
   background: linear-gradient(135deg, 
-    rgb(71, 85, 105) 0%, 
-    rgb(100, 116, 139) 100%
+    rgb(37, 99, 235) 0%, 
+    rgb(59, 130, 246) 100%
   );
   border: 2px solid transparent;
   background-clip: padding-box;
   transition: all 0.3s ease;
+  font-family: 'Orbitron', monospace;
+  font-weight: 500;
 }
 
 .professional-button:hover {
   background: linear-gradient(135deg, 
-    rgb(51, 65, 85) 0%, 
-    rgb(71, 85, 105) 100%
+    rgb(29, 78, 216) 0%, 
+    rgb(37, 99, 235) 100%
   );
-  box-shadow: 0 8px 25px rgba(71, 85, 105, 0.3);
+  box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3);
   transform: translateY(-2px);
 }
 
 /* High-Tech Border Effects */
 .tech-border-effect {
-  border: 1px solid rgba(100, 116, 139, 0.3);
+  border: 1px solid rgba(59, 130, 246, 0.3);
   box-shadow: 
-    0 0 20px rgba(71, 85, 105, 0.1),
+    0 0 20px rgba(37, 99, 235, 0.1),
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
 }
 
 .tech-border-effect:hover {
-  border-color: rgba(100, 116, 139, 0.5);
+  border-color: rgba(59, 130, 246, 0.5);
   box-shadow: 
-    0 0 30px rgba(71, 85, 105, 0.2),
+    0 0 30px rgba(37, 99, 235, 0.2),
     inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  animation: glow 2s ease-in-out infinite;
+}
+
+/* Cyber Grid Effect */
+.cyber-grid {
+  background-image: 
+    linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Neon Glow Text */
+.neon-text {
+  color: rgb(147, 197, 253);
+  text-shadow: 
+    0 0 5px rgba(147, 197, 253, 0.5),
+    0 0 10px rgba(59, 130, 246, 0.5),
+    0 0 15px rgba(37, 99, 235, 0.5);
+  font-family: 'Orbitron', monospace;
+}
+
+/* Holographic Effect */
+.holographic {
+  background: linear-gradient(
+    45deg,
+    rgb(37, 99, 235),
+    rgb(59, 130, 246),
+    rgb(96, 165, 250),
+    rgb(147, 197, 253),
+    rgb(59, 130, 246),
+    rgb(37, 99, 235)
+  );
+  background-size: 300% 300%;
+  animation: holographic-shift 3s ease-in-out infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@keyframes holographic-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
 }
