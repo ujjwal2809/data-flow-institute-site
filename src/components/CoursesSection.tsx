@@ -1,9 +1,7 @@
-
 import React from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, Clock, Users, Award, Code, Database, Cloud, Brain } from 'lucide-react';
+import { Clock, ArrowRight, Cloud, BarChart3, Database, Brain } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import {
   Carousel,
@@ -17,114 +15,116 @@ import Autoplay from "embla-carousel-autoplay";
 const CoursesSection = () => {
   const courses = [
     {
-      title: "Cloud Data Engineering Course",
-      description: "Master cloud data platforms with hands-on training in AWS, Azure, and GCP data services.",
-      duration: "6 Months",
-      students: "500+ Enrolled",
-      placement: "95% Placement Rate",
-      link: "/courses",
-      image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      icon: <Cloud className="w-8 h-8" />,
-      gradient: "from-blue-500/20 to-cyan-500/20"
+      title: "Cloud Data Engineering",
+      duration: "4 Months",
+      level: "Beginner to Advanced",
+      description: "Master cloud-native data engineering with AWS, Azure, and GCP. Learn to build scalable data pipelines and work with big data technologies.",
+      technologies: ["AWS", "Azure", "GCP", "Spark", "Kafka", "Airflow"],
+      icon: <Cloud className="w-8 h-8 text-blue-400" />,
+      link: "/courses/mumbai",
+      gradient: "course-card-gradient"
     },
     {
-      title: "Business Intelligence Course",
-      description: "Learn advanced BI tools, data visualization, and analytics to drive business decisions.",
-      duration: "4 Months", 
-      students: "300+ Enrolled",
-      placement: "92% Placement Rate",
+      title: "Business Intelligence",
+      duration: "3 Months", 
+      level: "Intermediate",
+      description: "Transform raw data into actionable insights. Learn advanced analytics, data visualization, and business intelligence tools.",
+      technologies: ["Tableau", "Power BI", "SQL", "Python", "Excel"],
+      icon: <BarChart3 className="w-8 h-8 text-blue-400" />,
       link: "/courses",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      icon: <Database className="w-8 h-8" />,
-      gradient: "from-purple-500/20 to-pink-500/20"
+      gradient: "course-card-gradient"
     },
     {
       title: "Data Platform Engineer",
-      description: "Specialize in building and maintaining enterprise data platforms and infrastructure.",
       duration: "5 Months",
-      students: "250+ Enrolled", 
-      placement: "94% Placement Rate",
+      level: "Advanced", 
+      description: "Design and build enterprise data platforms. Focus on data architecture, governance, and platform engineering best practices.",
+      technologies: ["Kubernetes", "Docker", "Terraform", "Databricks", "Snowflake"],
+      icon: <Database className="w-8 h-8 text-blue-400" />,
       link: "/courses",
-      image: "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      icon: <Code className="w-8 h-8" />,
-      gradient: "from-green-500/20 to-emerald-500/20"
+      gradient: "course-card-gradient"
     },
     {
       title: "DataOps & AI Engineer",
-      description: "Combine data operations with AI/ML engineering for next-generation data solutions.",
-      duration: "7 Months",
-      students: "200+ Enrolled",
-      placement: "96% Placement Rate", 
-      link: "/courses",
-      image: "https://images.unsplash.com/photo-1555255707-c07966088b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      icon: <Brain className="w-8 h-8" />,
-      gradient: "from-orange-500/20 to-red-500/20"
+      duration: "6 Months",
+      level: "Expert",
+      description: "Combine data operations with AI/ML engineering. Learn MLOps, model deployment, and AI-driven data solutions.",
+      technologies: ["MLflow", "Kubeflow", "TensorFlow", "PyTorch", "Jenkins"],
+      icon: <Brain className="w-8 h-8 text-blue-400" />,
+      link: "/courses", 
+      gradient: "course-card-gradient"
     }
   ];
 
   const plugin = React.useRef(
-    Autoplay({ delay: 4000, stopOnInteraction: true })
+    Autoplay({ delay: 5000, stopOnInteraction: true })
   );
 
   return (
-    <section className="py-20 bg-background">
+    <section className="py-20 hero-gradient">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold tech-gradient mb-6">
-            Our Premium Courses
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
+            Our Popular 
+            <span className="tech-gradient block">Courses</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Choose from our comprehensive range of placement-focused data engineering programs
+          <p className="text-xl text-blue-100 max-w-2xl mx-auto">
+            Industry-focused curriculum designed to get you placed in top companies
           </p>
         </div>
-        
+
         {/* Desktop Grid */}
         <div className="hidden lg:grid lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
           {courses.map((course, index) => (
-            <Card key={index} className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-4 border-2 hover:border-primary/30 glow-effect overflow-hidden bg-white/80 backdrop-blur-sm">
-              <div className="relative h-48 overflow-hidden">
-                <img 
-                  src={course.image}
-                  alt={course.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                <div className={`absolute inset-0 bg-gradient-to-t ${course.gradient} to-transparent opacity-80`}></div>
-                <div className="absolute top-4 left-4 text-white">
-                  {course.icon}
+            <Card 
+              key={index}
+              className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-6 border border-blue-300/30 bg-white/95 backdrop-blur-sm relative overflow-hidden"
+              style={{
+                animationDelay: `${index * 150}ms`,
+                animation: `fade-in 0.6s ease-out forwards`
+              }}
+            >
+              <CardContent className="p-6 h-full flex flex-col relative z-10">
+                <div className="flex items-center justify-between mb-4">
+                  <div className="p-3 bg-blue-50 rounded-lg group-hover:scale-110 transition-all duration-300">
+                    {course.icon}
+                  </div>
+                  <Badge className="bg-blue-100 text-blue-800 border-blue-200">
+                    {course.level}
+                  </Badge>
                 </div>
-                <Badge className="absolute top-4 right-4 bg-primary text-primary-foreground shadow-lg">
-                  New Batch
-                </Badge>
-              </div>
-              
-              <CardHeader className="pb-4">
-                <CardTitle className="text-lg font-bold text-foreground group-hover:text-primary transition-colors">
+                
+                <h3 className="text-xl font-bold mb-2 text-blue-900 group-hover:text-blue-700 transition-colors">
                   {course.title}
-                </CardTitle>
-              </CardHeader>
-              
-              <CardContent className="space-y-4">
-                <p className="text-muted-foreground text-sm">{course.description}</p>
+                </h3>
                 
-                <div className="space-y-2">
-                  <div className="flex items-center text-sm text-muted-foreground">
-                    <Clock className="w-4 h-4 mr-2 text-primary" />
-                    {course.duration}
-                  </div>
-                  <div className="flex items-center text-sm text-muted-foreground">
-                    <Users className="w-4 h-4 mr-2 text-primary" />
-                    {course.students}
-                  </div>
-                  <div className="flex items-center text-sm text-green-600">
-                    <Award className="w-4 h-4 mr-2" />
-                    {course.placement}
+                <div className="flex items-center gap-2 mb-3 text-sm text-slate-600">
+                  <Clock className="w-4 h-4" />
+                  <span>{course.duration}</span>
+                </div>
+                
+                <p className="text-slate-600 text-sm mb-4 flex-grow leading-relaxed">
+                  {course.description}
+                </p>
+                
+                <div className="mb-4">
+                  <h4 className="text-sm font-semibold text-blue-900 mb-2">Technologies:</h4>
+                  <div className="flex flex-wrap gap-1">
+                    {course.technologies.map((tech, techIndex) => (
+                      <span 
+                        key={techIndex}
+                        className="px-2 py-1 bg-blue-50 text-blue-700 text-xs rounded border border-blue-200"
+                      >
+                        {tech}
+                      </span>
+                    ))}
                   </div>
                 </div>
                 
-                <Link to={course.link}>
-                  <Button className="w-full group-hover:shadow-lg transition-all duration-300 tech-button">
+                <Link to={course.link} className="mt-auto">
+                  <Button className="w-full bg-blue-800 hover:bg-blue-900 text-white transition-all duration-300 group-hover:shadow-lg">
                     Learn More
-                    <ArrowRight className="w-4 h-4 ml-2" />
+                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </Link>
               </CardContent>
@@ -136,50 +136,60 @@ const CoursesSection = () => {
         <div className="lg:hidden">
           <Carousel
             plugins={[plugin.current]}
-            className="w-full max-w-sm mx-auto md:max-w-3xl"
+            className="w-full max-w-sm mx-auto md:max-w-4xl"
             onMouseEnter={plugin.current.stop}
             onMouseLeave={plugin.current.reset}
           >
             <CarouselContent className="-ml-2 md:-ml-4">
               {courses.map((course, index) => (
-                <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-1/2">
-                  <Card className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-primary/20 glow-effect bg-white/80 backdrop-blur-sm h-full">
-                    <div className="relative h-40 overflow-hidden">
-                      <img 
-                        src={course.image}
-                        alt={course.title}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                      />
-                      <div className={`absolute inset-0 bg-gradient-to-t ${course.gradient} to-transparent opacity-80`}></div>
-                      <div className="absolute top-3 left-3 text-white">
-                        {course.icon}
+                <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
+                  <Card className="group hover:shadow-xl transition-all duration-300 border border-blue-300/30 bg-white/95 backdrop-blur-sm h-full">
+                    <CardContent className="p-6 h-full flex flex-col">
+                      <div className="flex items-center justify-between mb-4">
+                        <div className="p-3 bg-blue-50 rounded-lg">
+                          {course.icon}
+                        </div>
+                        <Badge className="bg-blue-100 text-blue-800 border-blue-200">
+                          {course.level}
+                        </Badge>
                       </div>
-                      <Badge className="absolute top-3 right-3 bg-primary text-primary-foreground text-xs">
-                        New Batch
-                      </Badge>
-                    </div>
-                    
-                    <CardContent className="p-4 space-y-3">
-                      <h3 className="text-lg font-bold text-foreground group-hover:text-primary transition-colors">
+                      
+                      <h3 className="text-lg font-bold mb-2 text-blue-900">
                         {course.title}
                       </h3>
-                      <p className="text-muted-foreground text-sm">{course.description}</p>
                       
-                      <div className="space-y-1">
-                        <div className="flex items-center text-xs text-muted-foreground">
-                          <Clock className="w-3 h-3 mr-2 text-primary" />
-                          {course.duration}
-                        </div>
-                        <div className="flex items-center text-xs text-green-600">
-                          <Award className="w-3 h-3 mr-2" />
-                          {course.placement}
+                      <div className="flex items-center gap-2 mb-3 text-sm text-slate-600">
+                        <Clock className="w-4 h-4" />
+                        <span>{course.duration}</span>
+                      </div>
+                      
+                      <p className="text-slate-600 text-sm mb-4 flex-grow">
+                        {course.description}
+                      </p>
+                      
+                      <div className="mb-4">
+                        <h4 className="text-sm font-semibold text-blue-900 mb-2">Technologies:</h4>
+                        <div className="flex flex-wrap gap-1">
+                          {course.technologies.slice(0, 3).map((tech, techIndex) => (
+                            <span 
+                              key={techIndex}
+                              className="px-2 py-1 bg-blue-50 text-blue-700 text-xs rounded border border-blue-200"
+                            >
+                              {tech}
+                            </span>
+                          ))}
+                          {course.technologies.length > 3 && (
+                            <span className="px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded">
+                              +{course.technologies.length - 3} more
+                            </span>
+                          )}
                         </div>
                       </div>
                       
-                      <Link to={course.link}>
-                        <Button size="sm" className="w-full tech-button">
+                      <Link to={course.link} className="mt-auto">
+                        <Button className="w-full bg-blue-800 hover:bg-blue-900 text-white">
                           Learn More
-                          <ArrowRight className="w-3 h-3 ml-2" />
+                          <ArrowRight className="w-4 h-4 ml-2" />
                         </Button>
                       </Link>
                     </CardContent>
@@ -187,8 +197,8 @@ const CoursesSection = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="hidden md:flex" />
-            <CarouselNext className="hidden md:flex" />
+            <CarouselPrevious className="hidden md:flex -left-12 border-white/20 bg-white/10 text-white hover:bg-white/20" />
+            <CarouselNext className="hidden md:flex -right-12 border-white/20 bg-white/10 text-white hover:bg-white/20" />
           </Carousel>
         </div>
       </div>
